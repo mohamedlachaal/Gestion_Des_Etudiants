@@ -4,24 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client {
-	List<Paiment> paiments = new ArrayList<Paiment>();
-	public List<Paiment> getPaiments() {
-		return paiments;
-	}
-	public void setPaiments(List<Paiment> paiments) {
-		this.paiments = paiments;
-	}
-	Paiment paiment ;
-	public Paiment getPaiment() {
-		return paiment;
-	}
-	public void setPaiment(Paiment paiment) {
-		this.paiment = paiment;
-	}
 	private int id;
 	private String nom;
 	private String prenom;
 	private int age;
+	private List<Paiment> paiments ;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -46,8 +35,12 @@ public class Client {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public Client() {
-		
+	public List<Paiment> getPaiments() {
+		return paiments;
 	}
+	public void setPaiments(List<Paiment> paiments) {
+		this.paiments = paiments;
+	}
+	
 	
 }
