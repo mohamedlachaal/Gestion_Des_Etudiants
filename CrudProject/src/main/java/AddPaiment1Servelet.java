@@ -36,7 +36,7 @@ public class AddPaiment1Servelet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 	
 	
-		String url_db = "jdbc:mysql://localhost:3308/eheio_db";
+		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
 		Client client = new Client();

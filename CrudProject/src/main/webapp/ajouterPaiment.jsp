@@ -15,7 +15,7 @@
 <h1>votre paiment</h1>
 
 
-<form method="post" action="AddPaiment?id=<%=client.getId() %>">
+<form method="post" action="AfficherListPaiment?id=<%=client.getId() %>">
    
 	<label>tarifs</label>
 	<input type="number" name="tarifs"><br>

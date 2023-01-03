@@ -33,7 +33,7 @@ public class DeleteClientServelet extends HttpServlet {
 		// TODO Auto-generated method stub
 		int id = Integer.parseInt( request.getParameter("id") );
 		
-		String url_db = "jdbc:mysql://localhost:3308/eheio_db";
+		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
 		try {

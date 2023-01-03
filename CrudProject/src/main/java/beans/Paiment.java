@@ -5,7 +5,7 @@ import java.sql.Date;
 public class Paiment {
 
 
-	private Integer idPaiment;
+	private int idPaiment;
 	private int tarifs;
 	private int montantPayee;
 	private String datePaiment;

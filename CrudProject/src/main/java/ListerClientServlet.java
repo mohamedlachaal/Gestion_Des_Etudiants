@@ -34,7 +34,7 @@ public class ListerClientServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url_db = "jdbc:mysql://localhost:3308/eheio_db";
+		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
 		List<Client> listClients = new ArrayList<Client>();

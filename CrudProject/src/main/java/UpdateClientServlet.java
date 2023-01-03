@@ -33,7 +33,7 @@ public class UpdateClientServlet extends HttpServlet {
 		String nom =request.getParameter("nom") ;
 		String prenom = request.getParameter("prenom");
 		int age =Integer.parseInt( request.getParameter("age") );
-		String url_db = "jdbc:mysql://localhost:3308/eheio_db";
+		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
 		try {
