@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import beans.Client;
 import beans.Paiment;
@@ -40,26 +42,27 @@ public class AddPaiment1Servelet extends HttpServlet {
 		String user_db = "root";
 		String pwd_db = "";
 		Client client = new Client();
-		Paiment paiment = new Paiment();
-		client.setPaiment(paiment);
+		
+		List<Paiment> paiments= new ArrayList<Paiment>();
 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url_db, user_db, pwd_db);
 		
-		PreparedStatement psmt = conn.prepareStatement("select * from client c LEFT JOIN paiment p on c.id= p.id_client where c.id= ?");
+		PreparedStatement psmt = conn.prepareStatement("select * from client c left JOIN paiment p on c.id= p.id_client where c.id= ?");
 		psmt.setInt(1, id);
-
 		ResultSet rs = psmt.executeQuery();
-
 		while (rs.next()) {
-		
+			    Paiment paiment = new Paiment();
 				client.setId(rs.getInt("id"));
 				client.setNom(rs.getString("nom"));
 				client.setPrenom(rs.getString("prenom"));
+				paiment.setTarifs(rs.getInt("tarifs"));
 				client.setAge(rs.getInt("age"));
 				paiment.setIdPaiment(rs.getInt("id_paiment"));
-				client.setPaiment(paiment);
-			
+				paiment.setDatePaiment(rs.getString("date_paiment"));
+				paiment.setMontantPayee(rs.getInt("montant_payee"));
+				paiments.add(paiment);
+				client.setPaiments(paiments);
 		
 		
 		}

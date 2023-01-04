@@ -1,1 +1,14 @@
+/AddPaiment1Servelet.class
+/AddPaimentServelet.class
+/AfficherListPaimentServlet.class
+/AfficherPaimentServelet.class
+/AjouterClientServlet.class
+/DeleteClientServelet.class
+/ListerClientServlet.class
+/RecupeClientServelet.class
+/ShowProfilServelet.class
+/UpdateClientServlet.class
 /beans/
+/TraiterLoginServelet.class
+/FacutreServelet.class
+/FactureServelet.class

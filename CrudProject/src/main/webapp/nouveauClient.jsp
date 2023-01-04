@@ -69,7 +69,7 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="/CrudProject">
                 <i class="fas fa-fw fa-list "></i>
                 <span>Liste des clients</span></a>
         </li>
@@ -276,7 +276,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">AKALLOUCH Montassir</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
                                  src="img/undraw_profile.svg">
                             </a>

@@ -46,36 +46,26 @@ public class AddPaimentServelet extends HttpServlet {
 		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
-		Client client = new Client();
-		Paiment paiment = new Paiment();
-		client.setPaiment(paiment);
+		
+		
+		
 		
 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url_db, user_db, pwd_db);
-		
 		PreparedStatement psmt = conn.prepareStatement("insert into paiment(tarifs,montant_payee,id_client,date_paiment) values(?,?,?,?)");
-		/*psmt.setInt(1, tarif);
-		psmt.setInt(2, montantpayee);
-		psmt.setInt(3, id);
-		psmt.setString(4, date);*/
-		
 		psmt.setInt(1, tarif);
 		psmt.setInt(2, montantpayee);
 		psmt.setInt(3, id);
 		psmt.setString(4,date);
-		psmt.executeUpdate();
-  
-		
-	
+		psmt.executeUpdate();	
 		psmt.close();
-
 		conn.close();
 		} catch (Exception e) {
 		e.printStackTrace();
 		}
 	
-		request.getRequestDispatcher("AfficherListPaiment").forward(request, response);
+		request.getRequestDispatcher("ShowProfil").forward(request, response);
 	}
 
 	/**

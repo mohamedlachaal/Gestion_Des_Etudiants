@@ -2,8 +2,18 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
   <display-name>CrudProject</display-name>
   <welcome-file-list>
-    <welcome-file>ListerClient</welcome-file>
+    <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>TraiterLoginServelet</display-name>
+    <servlet-name>TraiterLoginServelet</servlet-name>
+    <servlet-class>TraiterLoginServelet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TraiterLoginServelet</servlet-name>
+    <url-pattern>/traiterLogin</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ListerClientServlet</display-name>
@@ -113,5 +123,15 @@
   <servlet-mapping>
     <servlet-name>AfficherListPaimentServlet</servlet-name>
     <url-pattern>/AfficherListPaiment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FacutreServelet</display-name>
+    <servlet-name>FacutreServelet</servlet-name>
+    <servlet-class>FacutreServelet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FacutreServelet</servlet-name>
+    <url-pattern>/FacutreServelet</url-pattern>
   </servlet-mapping>
 </web-app>

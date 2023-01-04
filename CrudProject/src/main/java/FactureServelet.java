@@ -17,15 +17,15 @@ import beans.Client;
 import beans.Paiment;
 
 /**
- * Servlet implementation class AfficherListPaimentServlet
+ * Servlet implementation class FacutreServelet
  */
-public class AfficherListPaimentServlet extends HttpServlet {
+public class FactureServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AfficherListPaimentServlet() {
+    public FactureServelet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,38 +35,39 @@ public class AfficherListPaimentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id")); 
+		int id = Integer.parseInt(request.getParameter("id"));
 		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
-		List<Client> listPaimentClient = new ArrayList<Client>();
-		List<Paiment> listPaiments= new ArrayList<Paiment>();
 		Client client = new Client();
-		try {
+		
+		List<Paiment> paiments= new ArrayList<Paiment>();
+ 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url_db, user_db, pwd_db);
-		PreparedStatement psmt = conn.prepareStatement("select * from paiment p left join client c on p.id_client=c.id where c.id = ?");
+		
+		PreparedStatement psmt = conn.prepareStatement("select * from client c LEFT JOIN paiment p on c.id= p.id_client where c.id= ? and p.id_paiment= ?");
 		psmt.setInt(1, id);
-		
+		psmt.setInt(id, id)
+
 		ResultSet rs = psmt.executeQuery();
+
 		while (rs.next()) {
-			
-			Paiment paiment = new Paiment();
-			/*client.setPaiment(paiment);
-			getPaiment().setIdPaiment(rs.getInt("idPaiment"));
-			client.getPaiment().setTarifs(rs.getInt("tarifs"));
-			client.getPaiment().setMontantPayee(rs.getInt("montantPayee"));
-			client.getPaiment().setDatePaiment(rs.getString("datePaiment"));*/
-			paiment.setIdPaiment(rs.getInt("id_paiment"));
-			paiment.setTarifs(rs.getInt("tarifs"));
-			paiment.setMontantPayee(rs.getInt("montantPayee"));
+			    Paiment paiment = new Paiment();
+				client.setId(rs.getInt("id"));
+				client.setNom(rs.getString("nom"));
+				client.setPrenom(rs.getString("prenom"));
+				client.setAge(rs.getInt("age"));
+				paiment.setIdPaiment(rs.getInt("id_paiment"));
+				paiment.setTarifs(rs.getInt("tarifs"));
+				paiment.setDatePaiment(rs.getString("date_paiment"));
+				paiment.setMontantPayee(rs.getInt("montant_payee"));
+				paiments.add(paiment);
+				client.setPaiments(paiments);
+				
+
 		
-			paiment.setDatePaiment(rs.getString("datePaiment"));
-			//client.setPaiment(paiment);
 		
-			listPaiments.add(paiment);
-			client.setPaiments(listPaiments);
-	
 		}
 		rs.close();
 		psmt.close();
@@ -75,8 +76,12 @@ public class AfficherListPaimentServlet extends HttpServlet {
 		e.printStackTrace();
 		}
 		request.setAttribute( "client", client);
-		request.getRequestDispatcher("afficherProfil.jsp").forward(request, response);
-	}
+		request.getRequestDispatcher("facture.jsp").forward(request, response);
+		
+		
+		
+		
+ 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
