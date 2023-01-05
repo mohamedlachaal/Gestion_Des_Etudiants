@@ -31,17 +31,20 @@ public class AjouterClientServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String nom =request.getParameter("nom") ;
 		String prenom = request.getParameter("prenom");
-		int age =Integer.parseInt(request.getParameter("age"));
+		String email =request.getParameter("email");
+		String phone = request.getParameter("phone");
+		
 		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url_db, user_db, pwd_db);
-		PreparedStatement psmt = conn.prepareStatement("insert into client (nom,prenom,age) values(?,?,?)");
+		PreparedStatement psmt = conn.prepareStatement("insert into client (nom,prenom,email,phone) values(?,?,?,?)");
 		psmt.setString(1, nom);
 		psmt.setString(2, prenom);
-		psmt.setInt(3, age);
+		psmt.setString(3, email);
+		psmt.setString(4,phone);
 		psmt.executeUpdate();
 		psmt.close();
 		conn.close(); 

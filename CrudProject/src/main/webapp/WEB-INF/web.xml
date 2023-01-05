@@ -126,12 +126,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>FacutreServelet</display-name>
-    <servlet-name>FacutreServelet</servlet-name>
-    <servlet-class>FacutreServelet</servlet-class>
+    <display-name>FactureServlet</display-name>
+    <servlet-name>FactureServlet</servlet-name>
+    <servlet-class>FactureServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>FacutreServelet</servlet-name>
-    <url-pattern>/FacutreServelet</url-pattern>
+    <servlet-name>FactureServlet</servlet-name>
+    <url-pattern>/FactureServlet</url-pattern>
   </servlet-mapping>
 </web-app>

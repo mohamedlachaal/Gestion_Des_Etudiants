@@ -69,7 +69,7 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="/CrudProject">
+            <a class="nav-link" href="ListerClient">
                 <i class="fas fa-fw fa-list "></i>
                 <span>Liste des clients</span></a>
         </li>
@@ -82,12 +82,7 @@
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
 
-        <!-- Sidebar Message -->
-        <div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>
+       
 
     </ul>
         <!-- End of Sidebar -->
@@ -330,8 +325,13 @@
                         </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form6Example5">Age</label>
-                            <input  type="number" id="form6Example5" class="form-control" name="age" />
+                            <label class="form-label" for="form6Example5">Email</label>
+                            <input  type="email" id="form6Example5" class="form-control" name="email" />
+                             
+                        </div>
+                         <div class="form-outline mb-4">
+                            <label class="form-label" for="form6Example5">Phone</label>
+                            <input  type="number" id="form6Example5" class="form-control" name="phone" />
                              
                         </div>
 
@@ -378,7 +378,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/CrudProject">Logout</a>
                 </div>
             </div>
         </div>

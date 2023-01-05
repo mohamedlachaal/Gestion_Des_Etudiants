@@ -52,7 +52,8 @@ public class RecupeClientServelet extends HttpServlet {
 		client.setId(rs.getInt("id"));
 		client.setNom(rs.getString("nom"));
 		client.setPrenom(rs.getString("prenom"));
-		client.setAge(rs.getInt("age"));
+		client.setEmail(rs.getString("email"));
+		client.setPhone(rs.getString("phone"));
 		
 		}
 		rs.close();

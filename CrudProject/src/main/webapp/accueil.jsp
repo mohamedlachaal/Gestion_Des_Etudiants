@@ -74,7 +74,7 @@
 
         <!-- Nav Item - Tables -->
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link" href="ListerClient">
                 <i class="fas fa-fw fa-list "></i>
                 <span>Liste des clients</span></a>
         </li>
@@ -88,11 +88,7 @@
         </div>
 
         <!-- Sidebar Message -->
-        <div class="sidebar-card d-none d-lg-flex">
-            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>
+        
 
     </ul>
     <!-- End of Sidebar -->
@@ -326,7 +322,8 @@
                                 <th scope="col">Id</th>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Prenom</th>
-                                <th scope="col">age</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
                                 <th scope="col"> Actions </th>
                             </tr>
                             </thead>
@@ -339,7 +336,8 @@
                                 <td><a href="ShowProfil?id=<%=client.getId() %>"><%=client.getId() %></a></td>
                                 <td><%=client.getNom() %></td>
                                 <td><%=client.getPrenom() %></td>
-                                <td><%=client.getAge() %></td>
+                                <td><%=client.getEmail() %></td>
+                                <td><%=client.getPhone() %></td>
                                 <td>
                                 	<a href="DeleteClient?id=<%=client.getId() %>" >
                                 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -351,7 +349,8 @@
                                 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                                          <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
                                     </svg>
-                                     <a	 href="RecupeClient?id=<%=client.getId() %>">
+                                    </a>
+                                    
                                 </td>
                             </tr>
 
@@ -401,7 +400,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="/CrudProject">Logout</a>
             </div>
         </div>
     </div>

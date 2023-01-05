@@ -57,11 +57,14 @@ public class ShowProfilServelet extends HttpServlet {
 				client.setId(rs.getInt("id"));
 				client.setNom(rs.getString("nom"));
 				client.setPrenom(rs.getString("prenom"));
-				client.setAge(rs.getInt("age"));
+				client.setEmail(rs.getString("email"));
+				client.setPhone(rs.getString("phone"));
 				paiment.setIdPaiment(rs.getInt("id_paiment"));
 				paiment.setTarifs(rs.getInt("tarifs"));
 				paiment.setDatePaiment(rs.getString("date_paiment"));
 				paiment.setMontantPayee(rs.getInt("montant_payee"));
+				paiment.setReste(paiment.getTarifs()-paiment.getMontantPayee());
+
 				paiments.add(paiment);
 				client.setPaiments(paiments);
 				

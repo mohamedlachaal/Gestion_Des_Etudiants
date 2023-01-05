@@ -7,7 +7,9 @@ public class Client {
 	private int id;
 	private String nom;
 	private String prenom;
-	private int age;
+	private String email;
+	private String phone;
+	private Paiment paiment;
 	
 	private List<Paiment> paiments ;
 	
@@ -30,17 +32,30 @@ public class Client {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
+	
 	public List<Paiment> getPaiments() {
 		return paiments;
 	}
 	public void setPaiments(List<Paiment> paiments) {
 		this.paiments = paiments;
+	}
+	public Paiment getPaiment() {
+		return paiment;
+	}
+	public void setPaiment(Paiment paiment) {
+		this.paiment = paiment;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 	

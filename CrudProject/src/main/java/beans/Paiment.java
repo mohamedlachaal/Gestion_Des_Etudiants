@@ -9,7 +9,7 @@ public class Paiment {
 	private int tarifs;
 	private int montantPayee;
 	private String datePaiment;
-	
+	private int reste;
 
 	
 	public Integer getIdPaiment() {
@@ -39,5 +39,10 @@ public class Paiment {
 	public Paiment() {
 		
 	}
-	
+	public int getReste() {
+		return reste;
+	}
+	public void setReste(int reste) {
+		this.reste = reste;
+	}
 }

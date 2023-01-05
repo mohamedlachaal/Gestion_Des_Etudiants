@@ -6,9 +6,9 @@
 <html>
 <head>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<link href="~/css/facture.css" rel="stylesheet">
-<link href="~/css/profile.css" rel="stylesheet">
-<link href="~/css/sb-admin-2.css" rel="stylesheet">
+<link href="css/facture.css" rel="stylesheet">
+<link href="css/profile.css" rel="stylesheet">
+<link href="css/sb-admin-2.css" rel="stylesheet">
 </head>
 <body>
 <% 
@@ -51,23 +51,23 @@
                     <div class="col-sm-6">
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">Nom :</span>
-                            <span class="text-600 text-110 text align-middle"><</span>
+                            <span class="text-600 text-110 text align-middle"><%=client.getNom() %></span>
                         </div>
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">Prenom :</span>
-                            <span class="text-600 text-110 text align-middle">@Model.Prenom</span>
+                            <span class="text-600 text-110 text align-middle"><%=client.getPrenom() %></span>
                         </div>
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">Montant payé :</span>
-                            <span class="text-600 text-110 text-blue align-middle">@Model.paiement.montant_paye MAD</span>
+                            <span class="text-600 text-110 text-blue align-middle"><%=client.getPaiment().getMontantPayee() %> MAD</span>
                         </div>
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">Email :</span>
-                            <span class="text-600 text-110 text align-middle">@Model.email</span>
+                            <span class="text-600 text-110 text align-middle"><%=client.getEmail() %></span>
                         </div>
                         <div>
                             <span class="text-sm text-grey-m2 align-middle">N° Téléphone:</span>
-                            <span class="text-600 text-110 text align-middle">@Model.phone</span>
+                            <span class="text-600 text-110 text align-middle"><%=client.getPhone() %></span>
                         </div>
                        
 
@@ -90,10 +90,10 @@
                     <div class="text-95 text-secondary-d3">
                         <div class="row mb-2 mb-sm-0 py-25  bgc-default-l4">
                             <div class="d-none d-sm-block col-1">1</div>
-                            <div class="col-9 col-sm-5">@Model.paiement.date</div>
-                            <div class="d-none d-sm-block col-2">@Model.paiement.tarif MAD</div>
-                                <div class="d-none d-sm-block col-2 text-95">@Model.paiement.montant_paye MAD</div>
-                            <div class="col-2 text-secondary-d2">@Model.paiement.reste MAD </div>
+                            <div class="col-9 col-sm-5"><%=client.getPaiment().getDatePaiment() %></div>
+                            <div class="d-none d-sm-block col-2"><%=client.getPaiment().getTarifs() %> MAD</div>
+                                <div class="d-none d-sm-block col-2 text-95"><%=client.getPaiment().getMontantPayee() %> MAD</div>
+                            <div class="col-2 text-secondary-d2"><%=client.getPaiment().getReste() %> MAD </div>
                         </div>
 
                     </div>

@@ -56,8 +56,9 @@ public class AddPaiment1Servelet extends HttpServlet {
 				client.setId(rs.getInt("id"));
 				client.setNom(rs.getString("nom"));
 				client.setPrenom(rs.getString("prenom"));
+				client.setEmail(rs.getString("email"));
+				client.setPhone(rs.getString("phone"));
 				paiment.setTarifs(rs.getInt("tarifs"));
-				client.setAge(rs.getInt("age"));
 				paiment.setIdPaiment(rs.getInt("id_paiment"));
 				paiment.setDatePaiment(rs.getString("date_paiment"));
 				paiment.setMontantPayee(rs.getInt("montant_payee"));

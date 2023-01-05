@@ -64,19 +64,19 @@
            
             <!-- Heading -->
             <div class="sidebar-heading">
-                Etudiant
+                Client
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
              <li class="nav-item">
-                <a class="nav-link" href="/GestionEtudiant/ajouterEtudiant">
+                <a class="nav-link" href="nouveauClient.jsp">
                     <i class="fas fa-fw fa-plus "></i>
                     <span>Ajouter un client</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="/GestionEtudiant/recupererEtu">
+                <a class="nav-link" href="ListerClient">
                     <i class="fas fa-fw fa-list "></i>
                     <span>Liste des clients</span></a>
             </li>
@@ -90,11 +90,7 @@
             </div>
 
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            
 
         </ul>
         <!-- End of Sidebar -->
@@ -353,17 +349,22 @@
 	                    <%=client.getPrenom() %>
 	                   </div>
                   </div>
-                   
-                    
-                  
-                
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Age</h6>
+                      <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                       <%=client.getAge() %> 
+                       <%=client.getEmail() %> 
+                    </div>
+                  </div>
+                   <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                       <%=client.getPhone() %> 
                     </div>
                   </div>
                   
@@ -389,7 +390,9 @@
           <th scope="col">Id</th>
           <th scope="col">Tarif</th>
           <th scope="col">Montant payé</th>
+          <th scope="col">Total Restant</th>
           <th scope="col">date de paiement</th>
+          
            <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -402,24 +405,22 @@ for(Paiment paiment: client.getPaiments()){
 
 
 	<tr>
-<td><a href="ShowProfil"><%=paiment.getIdPaiment() %>	</a></td>
-<td><%=paiment.getTarifs() %></td>
-<td><%=paiment.getMontantPayee() %></td>
-<td><%=paiment.getDatePaiment() %></td>
- <td>
-                                	<a href="DeleteClient?id=<%=client.getId() %>" >
-                                	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                        <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                               		</svg>
-                               		</a>
-                               		  
-                               		 <a	 href="">
-                                	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
-                                         <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
-                                    </svg>
-                                     <a	 href=" ">
-                                </td>
-</tr>
+		<td><a href="ShowProfil"><%=paiment.getIdPaiment()%></a></td>
+		<td><%=paiment.getTarifs() %> MAD</td>
+		<td><%=paiment.getMontantPayee() %> MAD</td>
+		<td><%=paiment.getReste() %> MAD</td>
+		<td><%=paiment.getDatePaiment() %></td>
+		<td>
+		<a  href="FactureServlet?id=<%=paiment.getIdPaiment() %>">
+	   	 <button class="btn btn-outline-primary"> 
+		 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
+		    	<path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>         
+		        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+			</svg>
+		 </button>
+		 </a>
+		</td>
+	</tr>
 
 
 <%} %>
@@ -469,7 +470,7 @@ for(Paiment paiment: client.getPaiments()){
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/CrudProject">Logout</a>
                 </div>
             </div>
         </div>
