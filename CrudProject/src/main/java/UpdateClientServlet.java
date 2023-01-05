@@ -32,18 +32,20 @@ public class UpdateClientServlet extends HttpServlet {
 		int id = Integer.parseInt( request.getParameter("id") );
 		String nom =request.getParameter("nom") ;
 		String prenom = request.getParameter("prenom");
-		int age =Integer.parseInt( request.getParameter("age") );
+		String email =( request.getParameter("email") );
+		String phone = request.getParameter("phone");
 		String url_db = "jdbc:mysql://localhost:3306/eheio_db";
 		String user_db = "root";
 		String pwd_db = "";
 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(url_db, user_db, pwd_db);
-		PreparedStatement psmt = conn.prepareStatement("update client set nom= ? , prenom = ?, age = ? where id = ?");
+		PreparedStatement psmt = conn.prepareStatement("update client set nom= ? , prenom = ?, email = ? , phone= ? where id = ?");
 		psmt.setString(1, nom);
 		psmt.setString(2, prenom);
-		psmt.setInt(3, age);
-		psmt.setInt(4, id);
+		psmt.setString(3, email);
+		psmt.setString(4, phone);
+		psmt.setInt(5, id);
 		psmt.executeUpdate();
 		psmt.close();
 		conn.close();
